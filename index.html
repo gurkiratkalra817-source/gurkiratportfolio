@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foodie - Online Food Ordering</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="#" class="logo">🍔 Foodie<span>.</span></a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+    </nav>
+    <button class="cart-button" id="cartButton">
+      🛒 Cart <span id="cartCount">0</span>
+    </button>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <p class="tag">FRESH • TASTY • DELIVERED</p>
+      <h1>Your favourite food,<br>delivered <span>fresh.</span></h1>
+      <p>Discover delicious meals and order your favourites in just a few clicks.</p>
+      <a href="#menu" class="primary-button">Explore Menu →</a>
+    </div>
+    <div class="hero-emoji">🍕</div>
+  </section>
+
+  <main class="container" id="menu">
+    <div class="section-heading">
+      <div>
+        <p class="tag">OUR MENU</p>
+        <h2>Explore delicious food</h2>
+      </div>
+      <p>Choose what you love ❤️</p>
+    </div>
+
+    <div class="toolbar">
+      <input type="search" id="searchInput" placeholder="🔍 Search food...">
+      <select id="categoryFilter">
+        <option value="All">All Categories</option>
+        <option value="Pizza">Pizza</option>
+        <option value="Burger">Burger</option>
+        <option value="Indian">Indian</option>
+        <option value="Dessert">Dessert</option>
+        <option value="Drinks">Drinks</option>
+      </select>
+      <select id="sortFilter">
+        <option value="default">Sort: Recommended</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+      </select>
+    </div>
+
+    <div class="food-grid" id="foodGrid"></div>
+  </main>
+
+  <section class="about container" id="about">
+    <p class="tag">WHY FOODIE?</p>
+    <h2>Good food. Great mood.</h2>
+    <p>Browse the menu, customize your order, manage your cart and place your order easily.</p>
+  </section>
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <h2>🛒 Your Cart</h2>
+      <button class="close-button" id="closeCart">✕</button>
+    </div>
+
+    <div id="cartItems" class="cart-items"></div>
+
+    <div class="coupon">
+      <input type="text" id="couponInput" placeholder="Coupon code">
+      <button id="applyCoupon">Apply</button>
+    </div>
+    <p id="couponMessage"></p>
+
+    <div class="bill">
+      <p><span>Subtotal</span><span id="subtotal">₹0</span></p>
+      <p><span>Delivery</span><span id="deliveryFee">₹0</span></p>
+      <p><span>Discount</span><span id="discount">₹0</span></p>
+      <h3><span>Total</span><span id="total">₹0</span></h3>
+    </div>
+
+    <button class="primary-button full-width" id="checkoutButton">
+      Proceed to Checkout →
+    </button>
+  </aside>
+
+  <section class="checkout-modal" id="checkoutModal">
+    <button class="close-button modal-close" id="closeCheckout">✕</button>
+    <h2>Complete your order 🍽️</h2>
+    <p>Enter your delivery details.</p>
+
+    <form id="checkoutForm">
+      <label for="customerName">Full Name</label>
+      <input id="customerName" name="customerName" required placeholder="Your name">
+
+      <label for="customerPhone">Phone Number</label>
+      <input id="customerPhone" name="customerPhone" type="tel"
+        pattern="[0-9]{10}" maxlength="10" required placeholder="10-digit phone number">
+
+      <label for="customerAddress">Delivery Address</label>
+      <textarea id="customerAddress" name="customerAddress"
+        required placeholder="House number, street, city"></textarea>
+
+      <label for="paymentMethod">Payment Method</label>
+      <select id="paymentMethod" name="paymentMethod">
+        <option value="Cash on Delivery">Cash on Delivery</option>
+        <option value="UPI (Demo)">UPI (Demo)</option>
+      </select>
+
+      <button type="submit" class="primary-button full-width">
+        Place Order
+      </button>
+    </form>
+  </section>
+
+  <section class="success-modal" id="successModal">
+    <div class="success-icon">✓</div>
+    <h2>Order placed!</h2>
+    <p id="orderMessage">Thank you for ordering with Foodie.</p>
+    <button class="primary-button" id="finishOrder">Continue Shopping</button>
+  </section>
+
+  <section class="container orders-section">
+    <div class="section-heading">
+      <div>
+        <p class="tag">YOUR ACTIVITY</p>
+        <h2>Recent orders</h2>
+      </div>
+    </div>
+    <div id="orderHistory" class="order-history">
+      <p class="empty-message">Your orders will appear here.</p>
+    </div>
+  </section>
+
+  <footer>
+    <a href="#" class="logo">🍔 Foodie<span>.</span></a>
+    <p>Made with ❤️ for food lovers.</p>
+    <p class="small-text">Demo project • No real payment or delivery service connected</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
